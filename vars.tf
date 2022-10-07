@@ -16,3 +16,17 @@ variable "tenant_id" {
   description = "Your tenant id."
   default     = "b9a54e03-5aaf-479f-ad8c-71b81cf06164"
 }
+
+variable "prefix" {
+  description = "The prefix used for all resources."
+  default     = "test"
+}
+
+variable "location" {
+  description = "The Azure location where all resources in this example should be created."
+  default     = "West Europe"
+}
+
+variable "Database Password" {
+  description = "The password for the database."
+}
