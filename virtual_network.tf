@@ -56,9 +56,8 @@ resource "azurerm_network_security_rule" "htpprule" {
   access                      = "Allow"
   protocol                    = "Tcp"
   source_port_range           = "*"
-  destination_port_range      = "80"
+  destination_port_range      = "8080"
   source_address_prefix       = "*"
-  destination_address_prefix  = "*"
   resource_group_name         = "tstate"
   network_security_group_name = azurerm_network_security_group.frontendnsg.name
 }
