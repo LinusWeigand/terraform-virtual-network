@@ -4,7 +4,7 @@ variable "client_secret" {
 
 variable "client_id" {
   description = "Your client Id."
-  default     = "74c0c8ba-8ea2-4318-a994-0344e6738062"
+  default     = "3e99dfac-e180-4ca5-8ed8-fdca405dc6a6"
 }
 
 variable "subscription_id" {
