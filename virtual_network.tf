@@ -63,6 +63,7 @@ resource "azurerm_network_security_rule" "httprule" {
   network_security_group_name = azurerm_network_security_group.frontendnsg.name
 }
 
+# Security rules
 resource "azurerm_network_security_rule" "sshrule" {
   name                        = "${var.prefix}-ssh"
   priority                    = 101
@@ -75,4 +76,10 @@ resource "azurerm_network_security_rule" "sshrule" {
   destination_address_prefix  = "10.0.1.0/24"
   resource_group_name         = "tstate"
   network_security_group_name = azurerm_network_security_group.frontendnsg.name
+}
+
+#Subnet - Security Group association
+resource "azurerm_subnet_network_security_group_association" "subnetsecuritygroup" {
+  subnet_id                 = azurerm_subnet.subnet.id
+  network_security_group_id = azurerm_network_security_group.frontendnsg.id
 }
