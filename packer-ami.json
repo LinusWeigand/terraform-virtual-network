@@ -1,0 +1,44 @@
+{
+    "variables": {
+        "az_client_id": "",
+        "az_client_secret": ""
+    },
+    "builders": [
+        {
+            "type": "azure-arm",
+            "client_id": "{{user `az_client_id`}}",
+            "client_secret": "{{user `az_client_secret`}}",
+            "tenant_id": "00000000-0000-0000-0000-000000000000",
+            "subscription_id": "00000000-0000-0000-0000-000000000000",
+            "managed_image_resource_group_name": "ami-rg-store",
+            "managed_image_storaeg_account_type": "Standard_LRS",
+            "managed_image_name": "jenkins-ami-{{timestamp}}",
+            "os_type": "Linux",
+            "image_publisher": "Canonical",
+            "image_offer": "0001-com-ubuntu-server-focal",
+            "image_sku": "20_04-lts-gen2",
+            "azure-tags": {
+                "dept": "Production",
+                "task": "VM Image deployment"
+            },
+            "location": "West Europe",
+            "vm_size": "Standard_DS2_v2"
+        }
+    ],
+    "provisioners": [
+        {
+            "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
+            "inline": [
+                "apt update -y",
+                "sudo apt install -y zip curl wget apt-transport-https openjdk-11-jre openjdk-11-jdk",
+                "echo '----Install Jenkins ----'",
+                "curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null",
+                "echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null",
+                "sudo apt-get update -y",
+                "sudo apt-get install -y jenkins"
+            ],
+            "inline_shebang": "/bin/sh -x",
+            "type": "shell"
+        }
+    ]
+}
