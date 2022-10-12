@@ -27,6 +27,6 @@ variable "location" {
   default     = "West Europe"
 }
 
-# variable "dbpassword" {
-#   description = "The password for the database."
-# }
+variable "dbpassword" {
+  description = "The password for the database."
+}
