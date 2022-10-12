@@ -43,7 +43,7 @@ resource "azurerm_network_security_group" "frontendnsg" {
   location            = var.location
   resource_group_name = "tstate"
 
-  security_rule {
+  tags = {
     environment = "Production"
   }
 }
