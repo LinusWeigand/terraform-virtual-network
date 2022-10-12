@@ -44,7 +44,7 @@ resource "azurerm_network_security_group" "frontendnsg" {
   resource_group_name = "tstate"
 
   security_rule {
-    environmemt = "Production"
+    environment = "Production"
   }
 }
 
