@@ -5,6 +5,10 @@ resource "azurerm_virtual_machine" "vm" {
   network_interface_ids = [azurerm_network_interface.nic.id]
   vm_size               = "Standard_DS1_v2"
 
+  storage_image_reference {
+    id = "/subscriptions/${var.subscription_id}/resourceGroups/ami-rg-store/providers/Microsoft.Compute/images/{jenkins-ami-1665586405}"
+  }
+
   storage_os_disk {
     name              = "${var.prefix}osdisk1"
     caching           = "ReadWrite"
