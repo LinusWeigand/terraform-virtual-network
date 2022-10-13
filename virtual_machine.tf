@@ -6,7 +6,7 @@ resource "azurerm_virtual_machine" "vm" {
   vm_size               = "Standard_DS1_v2"
 
   storage_image_reference {
-    id = "/subscriptions/${var.subscription_id}/resourceGroups/ami-rg-store/providers/Microsoft.Compute/images/{jenkins-ami-1665586405}"
+    id = "/subscriptions/${var.subscription_id}/resourceGroups/ami-rg-store/providers/Microsoft.Compute/images/jenkins-ami-1665586405"
   }
 
   storage_os_disk {
