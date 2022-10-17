@@ -32,3 +32,12 @@ resource "azurerm_traffic_manager_endpoint" "north-tm-enpoint" {
   type                = "externalEndpoints"
 }
 
+# Endpoint West
+resource "azurerm_traffic_manager_endpoint" "west-tm-enpoint" {
+  name                = "${var.prefix}-west-global-tm"
+  resource_group_name = azurerm_resource_group.global-prod-rg.name
+  profile_name        = azurerm_traffic_manager_profile.traffic_manager.name
+  target              = azurerm_public_ip.west-publicip.fqdn
+  endpoint_location   = azurerm_public_ip.west-publicip.location
+  type                = "externalEndpoints"
+}
