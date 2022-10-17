@@ -1,20 +1,20 @@
 # Create a resource group north
 resource "azurerm_resource_group" "north-prod-rg" {
-  name     = "${var.prefix}-north-resources"
+  name     = "${var.prefix}-north-resource"
   location = "North Europe"
 
   tags = {
-    Environment = var.environment
+    "environment" = var.environment
   }
 }
 
 # Create a resource group west
 resource "azurerm_resource_group" "west-prod-rg" {
-  name     = "${var.prefix}-west-resources"
+  name     = "${var.prefix}-west-resource"
   location = "West Europe"
 
   tags = {
-    Environment = var.environment
+    "environment" = var.environment
   }
 }
 
@@ -24,6 +24,6 @@ resource "azurerm_resource_group" "global-prod-rg" {
   location = "Germany West Central"
 
   tags = {
-    Environment = var.environment
+    "environment" = var.environment
   }
 }
