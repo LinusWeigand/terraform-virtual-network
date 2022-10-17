@@ -27,6 +27,12 @@ variable "location" {
   default     = "germanywestcentral"
 }
 
+variable "environment" {
+  description = "The Azure Region in which all reources should be created."
+  default     = "Production"
+}
+
 variable "dbpassword" {
   description = "The password for the database."
+  default     = "P@ssw0rd"
 }
