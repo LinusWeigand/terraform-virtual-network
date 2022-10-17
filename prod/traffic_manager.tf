@@ -31,3 +31,4 @@ resource "azurerm_traffic_manager_endpoint" "north-tm-enpoint" {
   endpoint_location   = azurerm_public_ip.north-publicip.location
   type                = "externalEndpoints"
 }
+
