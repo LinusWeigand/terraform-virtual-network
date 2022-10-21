@@ -1,10 +1,10 @@
 # Traffic Manager for Java Web App
 resource "azurerm_traffic_manager_profile" "traffic_manager" {
-  name                   = "${var.prefix}-java-webapp-tm"
+  name                   = "${var.prefix}-webapp-tm"
   resource_group_name    = azurerm_resource_group.global-prod-rg.name
   traffic_routing_method = "Performance"
   dns_config {
-    relative_name = "${var.prefix}-java-webapp"
+    relative_name = "${var.prefix}-webapp"
     ttl           = 300
   }
 
