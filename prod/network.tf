@@ -14,6 +14,8 @@ resource "azurerm_virtual_network" "west_vnet" {
   resource_group_name = azurerm_resource_group.west-prod-rg.name
 }
 
+# ---------------------------------------- #
+
 # Subnet North
 resource "azurerm_subnet" "north_subnet" {
   name                 = "${var.prefix}-north-subnet"
@@ -29,6 +31,8 @@ resource "azurerm_subnet" "west_subnet" {
   virtual_network_name = azurerm_virtual_network.west-vnet.name
   address_prefixes     = ["10.0.1.0/24"]
 }
+
+# ---------------------------------------- #
 
 # Public IP North
 resource "azurerm_public_ip" "north-publicip" {
