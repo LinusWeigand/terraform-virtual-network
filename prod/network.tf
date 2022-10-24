@@ -7,7 +7,7 @@ resource "azurerm_virtual_network" "north-vnet" {
 }
 
 # Virtual network West
-resource "azurerm_virtual_network" "west_vnet" {
+resource "azurerm_virtual_network" "west-vnet" {
   name                = "${var.prefix}-west-vnet"
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.west-prod-rg.location
@@ -17,7 +17,7 @@ resource "azurerm_virtual_network" "west_vnet" {
 # ---------------------------------------- #
 
 # Subnet North
-resource "azurerm_subnet" "north_subnet" {
+resource "azurerm_subnet" "north-subnet" {
   name                 = "${var.prefix}-north-subnet"
   resource_group_name  = azurerm_resource_group.north-prod-rg.name
   virtual_network_name = azurerm_virtual_network.north-vnet.name
@@ -25,7 +25,7 @@ resource "azurerm_subnet" "north_subnet" {
 }
 
 # Subnet West
-resource "azurerm_subnet" "west_subnet" {
+resource "azurerm_subnet" "west-subnet" {
   name                 = "${var.prefix}-west-subnet"
   resource_group_name  = azurerm_resource_group.west-prod-rg.name
   virtual_network_name = azurerm_virtual_network.west-vnet.name

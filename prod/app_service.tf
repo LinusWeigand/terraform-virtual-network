@@ -34,7 +34,7 @@ resource "azurerm_app_service_plan" "west-asp" {
 }
 
 # App Service North
-resource "azurerm_app_service" "north_appservice" {
+resource "azurerm_app_service" "north-appservice" {
   name                = "${var.prefix}-north-appservice"
   location            = azurerm_resource_group.north-prod-rg.location
   resource_group_name = azurerm_resource_group.north-prod-rg.name
@@ -50,8 +50,7 @@ resource "azurerm_app_service" "north_appservice" {
   }
 
   app_settings = {
-    APPINSIGHTS_INSTRUMENTATIONKEY       = azurerm_application_insights.north-appinsights.instrumentation_key
-    APPINSIGHTINSIGHTS_CONNECTION_STRING = azurerm_application_insights.north-appinsights.connection_string
+    APPINSIGHTS_INSTRUMENTATIONKEY = azurerm_application_insights.north-appinsights.instrumentation_key
   }
 }
 
@@ -72,7 +71,6 @@ resource "azurerm_app_service" "west-appservice" {
   }
 
   app_settings = {
-    APPINSIGHTS_INSTRUMENTATIONKEY       = azurerm_application_insights.west-appinsights.instrumentation_key
-    APPINSIGHTINSIGHTS_CONNECTION_STRING = azurerm_application_insights.west-appinsights.connection_string
+    APPINSIGHTS_INSTRUMENTATIONKEY = azurerm_application_insights.west-appinsights.instrumentation_key
   }
 }

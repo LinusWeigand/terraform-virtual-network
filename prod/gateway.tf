@@ -18,7 +18,7 @@ resource "azurerm_application_gateway" "north-gateway" {
 
   gateway_ip_configuration {
     name      = "${var.prefix}-north-gateway-ip-configuration"
-    subnet_id = azurerm_subnet.north_subnet.id
+    subnet_id = azurerm_subnet.north-subnet.id
   }
 
   frontend_port {
@@ -96,7 +96,7 @@ resource "azurerm_application_gateway" "west-gateway" {
 
   gateway_ip_configuration {
     name      = "${var.prefix}-west-gateway-ip-configuration"
-    subnet_id = azurerm_subnet.west_subnet.id
+    subnet_id = azurerm_subnet.west-subnet.id
   }
 
   frontend_port {
