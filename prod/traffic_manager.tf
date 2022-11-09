@@ -1,4 +1,4 @@
-# Traffic Manager for Java Web App
+# Traffic Manager for Web App
 resource "azurerm_traffic_manager_profile" "traffic_manager" {
   name                   = "${var.prefix}-webapp-tm"
   resource_group_name    = azurerm_resource_group.global-prod-rg.name
